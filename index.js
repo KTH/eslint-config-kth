@@ -16,8 +16,9 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended',
+    'plugin:@typescript-eslint/recommended',
   ],
-  parser: '@babel/eslint-parser',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       classes: true,
@@ -33,6 +34,10 @@ module.exports = {
       node: {
         extensions: ['.js', '.jsx'],
       },
+      typescript: {
+        alwaysTryTypes: true,
+        project: './tsconfig.json',
+      },
     },
     react: {
       version: 'detect',
@@ -41,7 +46,7 @@ module.exports = {
       version: 'detect',
     },
   },
-  plugins: ['prettier', 'jest', 'jest-dom', 'testing-library', 'import', 'react', 'jsx-a11y'],
+  plugins: ['prettier', 'jest', 'jest-dom', 'testing-library', 'import', 'react', 'jsx-a11y', '@typescript-eslint'],
   rules: {
     'arrow-body-style': ['error', 'as-needed'],
     'array-callback-return': 'error',
@@ -94,6 +99,7 @@ module.exports = {
     'no-use-before-define': ['error', { functions: true, classes: true, variables: true }],
     'no-underscore-dangle': 'off',
     'no-var': 'error',
+    '@typescript-eslint/no-var-requires': 'off',
     'object-shorthand': ['error', 'always'],
     'operator-assignment': ['error', 'always'],
     'prefer-arrow-callback': ['error', { allowNamedFunctions: false, allowUnboundThis: true }],
