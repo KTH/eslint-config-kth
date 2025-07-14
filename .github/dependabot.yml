@@ -12,3 +12,7 @@ updates:
     ignore:
       - dependency-name: 'eslint'
         versions: ['9.x']
+      - dependency-name: 'jest'
+        versions: ['30']
+      - dependency-name: 'eslint-plugin-jest'
+        versions: ['29', '30']
