@@ -10,7 +10,12 @@ afterAll(() => {
 })
 
 describe('Validate ESLint config', () => {
-  const eslint = new ESLint({ overrideConfig: config })
+  const eslint = new ESLint({ overrideConfigFile: true, overrideConfig: config })
+
+  it(`config is a valid flat config array`, () => {
+    expect(Array.isArray(config)).toBe(true)
+    expect(config.length).toBeGreaterThan(0)
+  })
 
   it(`all top-level properties are correct`, async () => {
     const [result] = await eslint.lintText(TINY_VALID_JS_CODE)
