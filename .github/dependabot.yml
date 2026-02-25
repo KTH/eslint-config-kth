@@ -11,8 +11,4 @@ updates:
       - dependabot
     ignore:
       - dependency-name: 'eslint'
-        versions: ['9.x']
-      - dependency-name: 'jest'
-        versions: ['30']
-      - dependency-name: 'eslint-plugin-jest'
-        versions: ['29', '30']
+        versions: ['10']
