@@ -42,7 +42,7 @@ module.exports = {
       version: 'detect',
     },
   },
-  plugins: ['prettier', 'jest', 'jest-dom', 'testing-library', 'import', 'react', 'jsx-a11y', '@stylistic/js'],
+  plugins: ['prettier', 'jest', 'jest-dom', 'testing-library', 'import', 'react', 'jsx-a11y'],
   rules: {
     'arrow-body-style': ['error', 'as-needed'],
     'array-callback-return': 'error',
@@ -54,14 +54,6 @@ module.exports = {
     'import/newline-after-import': ['error', { count: 1 }],
     'import/order': ['error', { groups: ['builtin', 'external', 'parent', 'sibling', 'index'] }],
     'jsx-a11y/label-has-associated-control': ['error', { assert: 'either' }],
-    '@stylistic/js/padding-line-between-statements': [
-      'error',
-      {
-        blankLine: 'always',
-        prev: '*',
-        next: 'directive',
-      },
-    ],
     'no-console': ['error', { allow: [''] }],
     'no-multi-assign': ['error', { ignoreNonDeclaration: true }],
     'no-param-reassign': ['error', { props: false }],
@@ -130,7 +122,6 @@ module.exports = {
     'react/prop-types': 'off',
     'react/no-multi-comp': 'off',
     'sort-imports': 'off',
-    '@stylistic/js/spaced-comment': ['error', 'always'],
     strict: 'off',
     'testing-library/no-debugging-utils': [
       'error',
