@@ -149,7 +149,7 @@ module.exports = [
 
   // Jest/Testing configuration for test files
   {
-    files: ['**/*.test.{js,jsx}', '**/*.spec.{js,jsx}', '**/test/**/*.{js,jsx}', '**/__tests__/**/*.{js,jsx}'],
+    files: ['**/*.test.{js,jsx}', '**/*.spec.{js,jsx}', '**/test/**/*.{js,jsx}', '**/__tests__/**/*.{js,jsx}', '**/__mocks__/**/*.{js,jsx}'],
     plugins: {
       jest: jestPlugin,
       'jest-dom': jestDomPlugin,
