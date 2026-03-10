@@ -1,31 +1,58 @@
 # @kth/eslint-config-kth
 
-## Start using this config
+Shared ESLint configuration for KTH Node.js projects.
 
-- Install all needed packages in your project:
+## Requirements
 
-  ```
-  npm install --save-dev @kth/eslint-config-kth eslint prettier
-  ```
+- Node.js `^20.19.0 || ^22.13.0 || >=24`
+- ESLint `^9.0.0`
 
-  - You need [ESLint](https://eslint.org/) to enable linting.
-  - This ESLint-configuration is also based on [Prettier](https://prettier.io/).
-  - A configuration of [Babel](https://babeljs.io/) can be used when parsing your code.
+## Installation
 
-- Place a file ".eslintrc" in the root of your project; it will only need to contain the following:
+```bash
+npm install --save-dev @kth/eslint-config-kth eslint prettier
+```
 
-  ```
+## Usage
+
+Create an `eslint.config.js` file in your project root:
+
+```js
+const kthConfig = require('@kth/eslint-config-kth')
+
+module.exports = [
+  ...kthConfig,
   {
-    "extends": ["@kth/eslint-config-kth"]
+    ignores: ['dist/**', 'node_modules/**'],
+  },
+]
+```
+
+Add scripts to your `package.json`:
+
+```json
+{
+  "scripts": {
+    "lint": "eslint public/ server/ --quiet",
+    "lint-v": "eslint public/ server/"
   }
-  ```
+}
+```
 
-  All configuration needed will come from this config.
+## What's included
 
-## Developer
+This config exports a flat config array with three configuration objects:
 
-Our goal with this module is to use the same ESLint config in all our node projects at KTH.
+1. Base config with ESLint recommended rules + Prettier
+2. Main config for `**/*.{js,jsx}` files with React, JSX-A11y, React Hooks, Import, and Prettier plugins with KTH-specific rules
+3. Test config for `**/*.test.{js,jsx}`, `**/*.spec.{js,jsx}`, `**/test/**/*.{js,jsx}`, `**/__tests__/**/*.{js,jsx}`, and `**/__mocks__/**/*.{js,jsx}` with Jest, Jest-DOM, and Testing Library plugins
 
-We are all responsible for keeping this module fresh to help us in our daily work.
+## Migrating from v3
 
-Don´t be afraid to make changes but also take your time to discuss with colleagues about the changes you want to make.
+See [MIGRATING.md](./MIGRATING.md) for upgrade instructions from v3 to v4.
+
+## Contributing
+
+Our goal is to maintain a consistent ESLint configuration across all KTH Node.js projects.
+
+We are all responsible for keeping this module up to date. Don't be afraid to make changes, but take time to discuss with colleagues about significant modifications.
